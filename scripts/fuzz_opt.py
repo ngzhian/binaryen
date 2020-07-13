@@ -79,6 +79,7 @@ def run_unchecked(cmd):
 
 
 def randomize_pass_debug():
+    return
     if random.random() < 0.125:
         print('[pass-debug]')
         os.environ['BINARYEN_PASS_DEBUG'] = '1'
@@ -332,7 +333,7 @@ class FuzzExec(TestCaseHandler):
 
 
 class CompareVMs(TestCaseHandler):
-    frequency = 0.5
+    frequency = 1
 
     def __init__(self):
         super(CompareVMs, self).__init__()
@@ -587,9 +588,9 @@ class Asyncify(TestCaseHandler):
 testcase_handlers = [
     FuzzExec(),
     CompareVMs(),
-    CheckDeterminism(),
-    Wasm2JS(),
-    Asyncify(),
+    #CheckDeterminism(),
+    #Wasm2JS(),
+    #Asyncify(),
 ]
 
 
